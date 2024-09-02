@@ -85,9 +85,9 @@ def about_me_page():
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image("photo9.jpg")
+        st.image("images/photo9.jpg")
     with col2:
-        st.image("photo5.jpg")
+        st.image("images/photo5.jpg")
     
     st.subheader("Skills")
     st.write(
@@ -121,7 +121,7 @@ def portfolio_page():
     
     with col1:
         st.subheader("Project 1: Shape Track")
-        project1_image = Image.open("project3.png")
+        project1_image = Image.open("images/project3.png")
         st.image(project1_image, width=450)
         st.write(
             """
@@ -132,7 +132,7 @@ def portfolio_page():
     
     with col2:
         st.subheader("Project 2: FoodieFeedback")
-        project2_image = Image.open("project2.png")
+        project2_image = Image.open("images/project2.png")
         st.image(project2_image, width=450)
         st.write(
             """
@@ -142,7 +142,7 @@ def portfolio_page():
         )
     
     st.subheader("Project 3: TransitHub")
-    project3_image = Image.open("project1.png")
+    project3_image = Image.open("images/project1.png")
     st.image(project3_image, width=900)
     st.write(
         """
