@@ -19,7 +19,7 @@ def home_page():
     st.title("Crafting My Path: A Personal and Professional Showcase")
     
     # Display the header image using the provided file path
-    header_image_path = "C:\\Users\\User\\OneDrive - Cebu Institute of Technology University\\Documents\\4THYEAR\\Elective3\\header.jpeg"
+    header_image_path = "images/header.jpeg"
     header_image = Image.open(header_image_path)
     st.image(header_image, use_column_width=True)
     
