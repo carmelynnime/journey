@@ -3,22 +3,18 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 
-# Set up the page
 st.set_page_config(
     page_title="My Journey",
     page_icon=":star2:",
     layout="wide"
 )
 
-# Sidebar for navigation
 st.sidebar.title("Navigation")
 page = st.sidebar.selectbox("Go to", ["Home", "About Me", "Portfolio"])
 
-# Function to display the home page
 def home_page():
     st.title("Crafting My Path: A Personal and Professional Showcase")
     
-    # Display the header image using the provided file path
     header_image_path = "images/header.jpeg"
     header_image = Image.open(header_image_path)
     st.image(header_image, use_column_width=True)
@@ -32,7 +28,6 @@ def home_page():
         """
     )
     
-    # Include a video (replace the link with your video URL)
     st.video("https://www.youtube.com/watch?v=UG22q7yO6ms")
     st.write(
         """
@@ -42,7 +37,6 @@ def home_page():
         """
     )
 
-    # Display key metrics in a single row
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -54,7 +48,6 @@ def home_page():
     with col3:
         st.metric(label="Certifications", value="5+")
 
-    # Add a button to download a resume (replace with your actual file)
     with open("Gerali_Resume.pdf", "rb") as file:
         st.download_button(
             label="Download Resume",
@@ -64,7 +57,6 @@ def home_page():
         )
 
 
-# Function to display the "About Me" page
 def about_me_page():
     st.title("About Me")
 
@@ -98,11 +90,9 @@ def about_me_page():
         """
     )
     
-    # Add a slider to show years of experience
     years_experience = st.slider("Years of Work Experience:", 1, 10, 3)
     st.write("You have", years_experience, "years of experience.")
 
-    # Add an expander for hobbies
     with st.expander("My Hobbies"):
         st.write("In my free time, I enjoy:")
         st.write("- Dancing")
@@ -112,11 +102,9 @@ def about_me_page():
         st.write("- Playing chess")
         st.write("- Binge watching to movies and series")
 
-# Function to display the portfolio page
 def portfolio_page():
     st.title("Portfolio")
     
-    # Portfolio Grid
     col1, col2 = st.columns(2)
     
     with col1:
@@ -153,7 +141,6 @@ def portfolio_page():
         """
     )
     
-    # Include a chart to visualize some data
     st.subheader("Project Stats")
     data = {
         "Project": ["FoodieFeedback", "ShapeTrack", "TransitHub"],
@@ -166,34 +153,6 @@ def portfolio_page():
     st.subheader("Project Repositories")
     st.write("[Freedom Wall](https://github.com/Zeldwyn/InformationManagement2.git) | [TransitHub](https://github.com/Zeldwyn/TransitHub.git) | [FoodieFeedback](https://github.com/Zeldwyn/FoodieFeedback.git) | [Parking System](https://github.com/Zeldwyn/ParkingSystem.git)" )
 
-# Function to display the contact page
-def contact_page():
-    st.title("Contact Me")
-    
-    st.write(
-        """
-        I'd love to hear from you! Whether you have a question about my work or just want to say hi, feel free to reach out.
-        """
-    )
-    
-    # Social media links
-    
-
-    # Contact form
-    st.subheader("Get in Touch")
-    with st.form("contact_form"):
-        name = st.text_input("Name")
-        email = st.text_input("Email")
-        message = st.text_area("Message")
-        subscribe = st.checkbox("Subscribe to newsletter")
-        submitted = st.form_submit_button("Submit")
-        
-        if submitted:
-            st.write(f"Thank you for your message, {name}! I'll get back to you soon.")
-            if subscribe:
-                st.write("You've been subscribed to the newsletter.")
-
-# Page navigation logic
 if page == "Home":
     home_page()
 elif page == "About Me":
